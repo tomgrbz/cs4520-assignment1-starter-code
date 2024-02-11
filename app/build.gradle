@@ -4,6 +4,9 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding = true
+    }
     namespace 'com.cs4520.assignment1'
     compileSdk 33
 
