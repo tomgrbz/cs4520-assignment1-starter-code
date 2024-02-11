@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import kotlin.math.log
 
@@ -26,6 +27,7 @@ class LoginFragment: Fragment() {
         usernameEditText = view.findViewById(R.id.usernameEditText)
         passwordEditText = view.findViewById(R.id.passwordEditText)
         loginButton = view.findViewById(R.id.loginButton)
+        val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
         loginButton.setOnClickListener {
             val username = usernameEditText.text.toString()
@@ -34,7 +36,7 @@ class LoginFragment: Fragment() {
             if (username == "admin" && password == "admin") {
                 usernameEditText.text.clear()
                 passwordEditText.text.clear()
-                findNavController().navigate(R.id.action_loginFragment_to_productListFragment)
+                nav.navigate(R.id.action_loginFragment_to_productListFragment)
             } else {
                 Toast.makeText(requireContext(), "Incorrect username or password", Toast.LENGTH_LONG).show()
             }
