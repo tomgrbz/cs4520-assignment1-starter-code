@@ -27,6 +27,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/productExpiryDateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Expiry Date"
+        android:paddingLeft="12dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/productImageView"
+        app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
+    <TextView
         android:id="@+id/productPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,17 +46,6 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
-        app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/productExpiryDateTextView" />
 
-    <TextView
-        android:id="@+id/productExpiryDateTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Expiry Date"
-        android:paddingLeft="12dp"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/productImageView"
-        app:layout_constraintTop_toBottomOf="@+id/productPriceTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
