@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cs4520.assignment1.databinding.ProductListFragmentBinding
 
 class ProductListFragment: Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductListAdapter
+    private lateinit var productListFragmentBinding: ProductListFragmentBinding
 
     private var products = mapListToProductType(productsDataset)
 
@@ -21,12 +23,12 @@ class ProductListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.product_list_fragment, container, false)
-        recyclerView = view.findViewById(R.id.recyclerView)
+        productListFragmentBinding = ProductListFragmentBinding.inflate(inflater, container, false)
+        recyclerView = productListFragmentBinding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = ProductListAdapter(products = products)
         recyclerView.adapter = adapter
-        return view
+        return productListFragmentBinding.root
     }
 
     private fun mapListToProductType(products: List<List<Any?>>): List<Product> {

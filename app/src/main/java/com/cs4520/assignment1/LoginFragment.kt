@@ -9,8 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import kotlin.math.log
+import com.cs4520.assignment1.databinding.LoginFragmentBinding
 
 class LoginFragment: Fragment() {
 
@@ -18,15 +17,18 @@ class LoginFragment: Fragment() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
 
+    private lateinit var loginFragmentBinding: LoginFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.login_fragment, container, false)
-        usernameEditText = view.findViewById(R.id.usernameEditText)
-        passwordEditText = view.findViewById(R.id.passwordEditText)
-        loginButton = view.findViewById(R.id.loginButton)
+        loginFragmentBinding = LoginFragmentBinding.inflate(inflater, container, false);
+        val view = loginFragmentBinding.root
+        usernameEditText = loginFragmentBinding.usernameEditText
+        passwordEditText = loginFragmentBinding.passwordEditText
+        loginButton = loginFragmentBinding.loginButton
         val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
         loginButton.setOnClickListener {
